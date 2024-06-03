@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <script>
+    function addsum() {
+      let a = parseInt(document.getElementById("n1").value);
+      let b = parseInt(document.getElementById("n2").value);
+      let c = a + b;
+
+      document.getElementById("final_submit").innerHTML = "The sum is " + c;
+    }
+  </script>
+  <body>
+    <input oninput="addsum()" type="text" placeholder="First number" id="n1" />
+
+    <br /><br />
+    <input
+      oninput="addsum()"
+      type="text"
+      placeholder="Second number"
+      id="n2"
+    /><br /><br />
+    <button onclick="addsum()">Click here</button>
+    <div id="final_submit"></div>
+  </body>
+</html>

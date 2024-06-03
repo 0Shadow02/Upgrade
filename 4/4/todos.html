@@ -1,0 +1,90 @@
+<html>
+
+<div>
+    <input id="title" type="text" , placeholder="title">
+    <br></br>
+    <input id="description" type="text" , placeholder="description">
+    <br></br>
+    <button onclick="addtodo()">Add todo </button>
+</div>
+<div id="container"></div>
+<script>
+    let globaldid = 1;
+
+    function createchild(title, description, id) {
+        const childiv = document.createElement("div")
+        const t = document.createElement("div")
+        t.innerHTML = title;
+        childiv.appendChild(t)
+
+        const d = document.createElement("div")
+        d.innerHTML = description;
+        childiv.appendChild(d)
+
+        const btn = document.createElement("button")
+        btn.textContent = "Mark as Done"
+        btn.addEventListener('click', function () {
+            btn.textContent = "Done!"
+        })
+        childiv.appendChild(btn)
+
+        childiv.setAttribute("id", id)
+
+        return childiv
+
+
+
+
+
+    }
+
+
+    function AddtodoacctoState(state){
+        const parent = document.getElementById("conatiner")
+        parent.innerHTML="";
+        for (let i = 0; i < state.length; i++) {
+            const child= createchild(state[i].title,state[i].description,state[i].id)
+            parent.append(child);
+        }
+        
+
+
+    }
+    const todo = [
+      {
+        id: "1",
+        title: "workout",
+        description: "something"
+      },
+      {
+        id: "2",
+        title: "eat",
+      },
+      {
+        id: "3",
+        title: "study",
+      },
+      {
+        id: "4",
+        title: "drink water",
+      },
+    ];
+    AddtodoacctoState(todo)
+
+    function addtodo() {
+
+        const title = document.getElementById("title").value;
+        const description = document.getElementById("description").value;
+        document.getElementById("container").appendChild(createchild(title, description, globaldid++))
+
+
+
+
+
+    }
+
+
+
+</script>
+
+</html>

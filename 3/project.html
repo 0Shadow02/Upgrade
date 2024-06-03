@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aayan champak</title>
+    <script src="project.js"></script>
+    <style>
+        body {
+            background-image: url('wallpaperflare.com_wallpaper (3).jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            /* background-color: beige; */
+        }
+
+        #n {
+            display: flex;
+            justify-content: center;
+            margin-top: 100px;
+
+        }
+
+        #inputform {
+            backdrop-filter: blur(8px);
+            border-radius: 10px;
+            width: 400px;
+            height: 400px;
+            border: 2px solid black;
+
+            padding-top: 40px;
+            padding-left: 130px;
+            padding-right: 20px;
+            padding-bottom: 0px;
+            box-shadow: 0px 1px 8px;
+
+        }
+
+        #btn {
+            margin-top: 40px;
+            margin-left: 60px;
+            width: 180px;
+            height: 220px;
+            border-radius: 20px;
+            background-image: url('WhatsApp Image 2024-03-29 at 21.45.16_718e00e5.jpg');
+            background-size: cover;
+            border: none;
+            color: rgb(241, 239, 239);
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        #btn:hover {
+            background-color: #0056b3;
+            background-image: url('WhatsApp Image 2024-03-29 at 21.45.17_c7c1d4b7.jpg');
+            background-size: cover;
+        }
+
+        .label {
+            display: inline;
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            margin-bottom: 5px;
+            font-weight: 40px;
+            font-size: 20px;
+            color: #090808;
+            text-transform: uppercase;
+            font-size: 24px;
+        }
+        #username {
+    width: 120px;
+    height: 27px;
+    margin-left: 6px;
+    border: 1px solid #9c8c8c;
+    border-radius: 5px;
+    padding: 5px;
+    font-size: 14px;
+    color: #333;
+    background-color: #f9f9f9;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    outline: none;
+    margin-left: 12px;
+    background-color: rgb(171, 222, 236);
+}
+
+#username:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+#password {
+    width: 120px;
+    height: 27px;
+    margin-left: 6px;
+    border: 1px solid #9c8c8c;
+    border-radius: 5px;
+    padding: 5px;
+    font-size: 14px;
+    color: #333;
+    background-color: #f9f9f9;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    outline: none;
+    background-color: rgb(171, 222, 236);
+}
+
+#password:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+    </style>
+</head>
+
+<body>
+    <div id="n">
+
+        <form action="" id="inputform" action="/signin" method="POST" >
+
+            <div>
+                <label for="username" class="label">Username:</label>
+                <input type="text" id="username" name="username" ><br><br>
+
+                <label for="password" class="label">Password:</label>
+                <input type="text" id="password" name="password">
+
+
+
+                <div>
+                    <button id="btn">Sign In</button>
+
+                </div>
+        </form>
+    </div>
+<script>
+    document.getElementById('btn').addEventListener('click', async function() {
+    const username = document.getElementById('username').value;
+    const password = document.getElementById('password').value;
+
+    const response = await fetch('/signin', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ username, password })
+    });
+
+    const data = await response.json();
+    console.log(data);
+});
+
+</script>
+</body>
+
+</html>

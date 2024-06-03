@@ -1,0 +1,63 @@
+<html>
+  <body>
+    <div>
+      <input type="text" , placeholder="title" /> <br /><br />
+      <!-- <button onclick="AddtodoacctoState(todo)">click here</button> -->
+      <div id="container"></div>
+    </div>
+
+    <script>
+      const todo = [
+        {
+          title: "drink water",
+          description: " more than 2 liters",
+          id: "1",
+        },
+        {
+          title: "change",
+          description: "not",
+          id: "1",
+        },
+      ];
+      function createchild(title, description, id) {
+        const childiv = document.createElement("div")
+        const t = document.createElement("div")
+        t.innerHTML = title;
+        childiv.appendChild(t)
+
+        const d = document.createElement("div")
+        d.innerHTML = description;
+        childiv.appendChild(d)
+
+        const btn = document.createElement("button")
+        btn.textContent = "Mark as Done"
+        btn.addEventListener('click', function () {
+            btn.textContent = "Done!"
+        })
+        childiv.appendChild(btn)
+
+        childiv.setAttribute("id", id)
+
+        return childiv
+
+
+
+
+
+    }
+      function AddtodoacctoState(state) {
+        const parent = document.getElementById("container");
+        parent.innerHTML = "";
+        for (let i = 0; i < state.length; i++) {
+          const child = createchild(
+            state[i].title,
+            state[i].description,
+            state[i].id
+          );
+          parent.append(child);
+        }
+      }
+      AddtodoacctoState(todo);
+    </script>
+  </body>
+</html>
