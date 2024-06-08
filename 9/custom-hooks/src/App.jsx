@@ -1,34 +1,93 @@
 
 import './App.css'
 import { useEffect, useState } from 'react';
-import axios from 'axios';
 
-function useIncCount(){
-  const [count,setCount]=useState(0)
+
+
+function useDebounce(inputValue,n){
+  const [val,setval]=useState(0)
   useEffect(()=>{
-   const value= setInterval(() => {
-    setCount(c=>c+1)
-  }, 2000); 
-  return ()=> clearInterval(value)
-  },[count])
- 
-  return count
+   const time= setTimeout(() => {
+      setval(inputValue)
+    }, n)
+    return ()=>{ clearTimeout(val)}
+  },[inputValue])
+  return val
 }
 
-
-
-function App() {
-  const count = useIncCount()
-
+const SearchBar = () => {
+  const [inputValue, setInputValue] = useState('');
+  const debouncedValue = useDebounce(inputValue, 800); // milliseconds debounce delay
+  // Use the debouncedValue in your component logic, e.g., trigger a search API call via a useEffect
   return (
-    
     <div>
-      {count}
+
+    <input
+      type="text"
+      value={inputValue}
+      onChange={(e) => setInputValue(e.target.value)}
+      />
+    <div> {debouncedValue}</div>
       </div>
   );
+};
+export default SearchBar;
 
 
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Custom Hooks
+// function useIncCount(){
+//   const [count,setCount]=useState(0)
+//   useEffect(()=>{
+//    const value= setInterval(() => {
+//     setCount(c=>c+1)
+//   }, 2000); 
+//   return ()=> clearInterval(value)
+//   },[count])
+ 
+//   return count
+// }
+
+
+
+// function App() {
+//   const count = useIncCount()
+
+//   return (
+    
+//     <div>
+//       {count}
+//       </div>
+//   );
+
+
+// }
 
 
 
@@ -97,7 +156,7 @@ function App() {
 //   }
 // }
 
-export default App;
+// export default App;
 
 
 
