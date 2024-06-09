@@ -1,14 +1,39 @@
+import { number, string } from "zod"
 
-function time(timeout:()=> number                                                                                                                                                                                                                                                                                                         ){
-    setTimeout(() => {
-        console.log("hello")
-    }, timeout());
+interface User{
+    firstName:string ,
+    lastName:string,
+    email: string,
+    age:number
 }
+function islegel(user:User):boolean{
+if (user.age>=18) {
+    return true
+}
+else{
+    return false
+}
+}
+const user= {
+    firstName:"shadow" ,
+    lastName:"san",
+    email: "shadow@gmail.com",
+    age:21
 
-function timeout():number {
-    return 1000   
 }
-time(timeout)
+const val = islegel(user)
+console.log(val)
+
+// function time(timeout:()=> number                                                                                                                                                                                                                                                                                                         ){
+//     setTimeout(() => {
+//         console.log("hello")
+//     }, timeout());
+// }
+
+// function timeout():number {
+//     return 1000   
+// }
+// time(timeout)
 
 
 

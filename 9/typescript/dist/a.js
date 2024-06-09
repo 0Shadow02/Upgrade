@@ -1,13 +1,23 @@
 "use strict";
-function time(timeout) {
-    setTimeout(() => {
-        console.log("hello");
-    }, timeout());
+function islegel(age) {
+    if (age >= 18) {
+        return true;
+    }
+    else {
+        return false;
+    }
 }
-function timeout() {
-    return 1000;
-}
-time(timeout);
+const val = islegel(20);
+console.log(val);
+// function time(timeout:()=> number                                                                                                                                                                                                                                                                                                         ){
+//     setTimeout(() => {
+//         console.log("hello")
+//     }, timeout());
+// }
+// function timeout():number {
+//     return 1000   
+// }
+// time(timeout)
 // function sum(a: number , b:number)  {
 //     return a+ b;
 // }
