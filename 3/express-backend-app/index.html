@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <div id="plotDiv" style="width: 800px; "></div>
+    <style>
+        #h2 {
+            display: flex;
+            justify-content: center;
+        }
+
+        #image {
+            display: flex;
+            justify-content: center;
+            border-radius: 8px;
+            border: 2px solid black;
+            max-width: 622px;
+        }
+
+        body {
+            background: url(https://replicate.delivery/pbxt/91yOSkfgECSeiUvhueZV2OKfrhtNu6BvqXzg5eEoazcudfDoE/output.png) no-repeat;
+            background-size: cover;
+        }
+
+        .all {
+            margin-top: 10px;
+            margin-left: 25px;
+            margin-right: 25px;
+            margin-bottom: 20px;
+
+        }
+
+        #dimensions {
+            font-family: monospace;
+        }
+
+        .inputName {
+            margin-left: 65px;
+            max-width: 125px;
+
+
+        }
+
+        .buttons {
+            width: 100%;
+            height: 45px;
+            background: #182734;
+            border: none;
+            outline: none;
+            border-radius: 6px;
+            cursor: pointer;
+
+            font-size: 1em;
+            color: #fff;
+            font-weight: 500;
+            max-width: 222px;
+            transition: background-color 0.3s;
+
+        }
+
+        .buttons:hover {
+            background-color: #193954;
+        }
+
+        /* .input input:focus~label,
+   .input input:valid~label{
+    top:-55px
+   } */
+        .list {
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            margin-bottom: 18px;
+            margin-top: 18px;
+            font-weight: bolder;
+            display: flex;
+            margin-left: 55px;
+            border-bottom: 2px solid rgb(17, 17, 17);
+
+        }
+    </style>
+</head>
+
+<body>
+    <div
+        style="display: flex; justify-content: center; padding-right: 180px ; padding-left: 150px; box-shadow: 0px 12px 17px #040404;background-color: rgb(39, 37, 37); color: white; border-radius: 12px; ">
+
+        <h1 id="heading">Thick Cylinder Stress Analysis</h1>
+
+    </div>
+
+    <form
+        style="box-shadow: 1px 10px 17px #040404; margin: 50px 300px 50px;  background-color: #f7f7f7; padding: 20px; background: transparent; border-radius: 20px; backdrop-filter: blur(20px); ">
+        <div>
+
+            <h3 id="h2">Radial and hoop stress in thick cylinders with internal and external pressure.</h3>
+            <p style="font-family: Arial, Helvetica, sans-serif;">When a thick-cylinder is subjected to internal and
+                external pressure a hoop and longitudinal stress are produced in the wall.</p>
+            <center>
+
+                <img id="image"
+                    src="https://www.researchgate.net/profile/Lasinta-Wibawa-2/publication/340986847/figure/fig1/AS:885469655080963@1588123825946/Stress-distribution-in-thick-walled-cylinder-subjected-to-internal-pressure-4-a.png"
+                    alt="Error">
+            </center>
+        </div>
+
+        <div>
+            <div>
+                <p style="margin-left: 25px; font-family: 'Arial Black', sans-serif; font-size: 24px; color: #333;">
+                    Hoop Stress & Radial Stress:</p>
+            </div>
+            <div class="all">
+                <ul style="list-style-type: none; padding: 0;">
+
+                    <div id="plot1" class="stressPlot"></div>
+                    <div id="plot2" class="stressPlot"></div>
+
+                    <div class="data">
+                        <div class="cInput">
+                            <form>
+                                <div class="inputNames">
+                                    <span>
+
+                                        <li class="list" style="margin-bottom: 10px;">
+
+                                            <label for="int_press"  style="font-weight: bold;">Internal
+                                                pressure (N/mm2): <input class="inputName" type="number" id="int_press" name="int_press"
+                                                    style="padding: 5px; border-radius: 5px; margin-left: 101px;"></label>
+                                        </li>
+                                    </span>
+                                    <span>
+                                        <li class="list" style="margin-bottom: 10px;">
+
+                                            <label for="ext_press" style="font-weight: bold;">External
+                                                pressure (N/mm2): <input  class="inputName" type="number" id="ext_press" name="ext_press"
+                                                    style="padding: 5px; border-radius: 5px; margin-left: 100px;"></label>
+                                            </li>
+                                            
+                                    </span>
+                                    <span>
+                                        <li class="list" style="margin-bottom: 10px;">
+
+                                            <label for="r1"  style="font-weight: bold;">Inner Radius
+                                                (mm): <input class="inputName" type="number" id="r1" name="r1"
+                                                    style="padding: 5px; border-radius: 5px; margin-left: 178px;"></label>
+                                        </li>
+                                    </span>
+                                    <span>
+                                        <li class="list" style="margin-bottom: 10px;">
+
+                                            <label for="r2"  style="font-weight: bold;">Outer Radius
+                                                (mm): <input class="inputName" type="number" id="r2" name="r2"
+                                                    style="padding: 5px; border-radius: 5px;margin-left: 177px;"></label>
+                                        </li>
+                                    </span>
+                                </div>
+                                <div class="submit">
+                                    <input class="buttons" type="button" id="plotHoop" value="Plot Hoop Stress">
+                                    <input class="buttons" type="button" id="plotRadial" value="Plot Radial Stress">
+                                </div>
+                            </form>
+                        </div>
+                        
+                        </div>
+                    </div>
+
+
+            </div>
+
+
+
+
+
+
+
+           <script>
+        // Function to calculate hoop stress
+        function calculateHoopStress(pi, ps, ri, ro, r) {
+            var hoopStress;
+            if (ri <= r && r < ro) {
+                hoopStress = -(ro * ro * ps * (1 + (ri * ri) / (r * r)) / ((ro * ro) - (ri * ri))) + (ri * ri * pi * (1 + ((ro * ro) / (r * r))) / ((ro * ro) - (ri * ri)));
+            } else if (ro <= r && r <= ro) {
+                hoopStress = (ro * ro * ps * (1 + (ro * ro) / (r * r)) / ((ro * ro) - (ro * ro))) + (ri * ri * pi * (1 + ((ro * ro) / (r * r))) / ((ro * ro) - (ri * ri)));
+            }
+            return hoopStress;
+        }
+
+        // Function to calculate radial stress
+        function calculateRadialStress(pi, ps, ri, ro, r) {
+            var radialStress
+            if (ri <= r && r < ro) {
+                radialStress = (ro * ro * ps * (1 - (ri * ri) / (r * r)) / ((ro * ro) - (ri * ri))) + (ri * ri * pi * (1 - ((ro * ro) / (r * r))) / ((ro * ro) - (ri * ri)));
+            } else if (ro <= r && r <= ro) {
+                radialStress = (ro * ro * ps * (1 - (ro * ro) / (r * r)) / ((ro * ro) - (ro * ro))) + (ri * ri * pi * (1 - ((ro * ro) / (r * r))) / ((ro * ro) - (ri * ri)));
+            }
+            return radialStress;
+        }
+
+        // Function to generate data for plotting
+        function generateData(pi, ps, ri, ro) {
+            const radii = [];
+            const hoopStresses = [];
+            const radialStresses = [];
+
+            // Generate radius values
+            for (let radius = ri; radius <= ro; radius += 0.1) {
+                radii.push(radius);
+
+                // Calculate hoop stress
+                const hoopStress = calculateHoopStress(pi, ps, ri, ro, radius);
+                hoopStresses.push(hoopStress);
+
+                // Calculate radial stress
+                const radialStress = calculateRadialStress(pi, ps, ri, ro, radius);
+                radialStresses.push(radialStress);
+            }
+
+            return {
+                radii,
+                hoopStresses,
+                radialStresses
+            };
+        }
+
+        // Event listener for form submission
+        let submit1 = document.getElementById("plotHoop");
+        let submit2 = document.getElementById("plotRadial");
+        let submit = document.querySelectorAll(".buttons")
+        submit1.addEventListener("click", (e) => {
+            let data = document.querySelector(".data")
+            data.style.borderTop = ("3px solid grey")
+        })
+        submit1.addEventListener("click", (e) => {
+            e.preventDefault();
+            submit1.style.backgroundColor = "grey";
+            const internalPressure = parseFloat(document.querySelector("#int_press").value);
+            const externalPressure = parseFloat(document.querySelector("#ext_press").value);
+            const innerRadius = parseFloat(document.querySelector("#r1").value);
+            const outerRadius = parseFloat(document.querySelector("#r2").value);
+
+            const {
+                radii,
+                hoopStresses
+            } = generateData(internalPressure, externalPressure, innerRadius, outerRadius);
+
+            // Plot data
+            const trace1 = {
+                x: radii,
+                y: hoopStresses,
+                mode: 'curve',
+                name: 'Hoop Stress'
+            };
+
+            const layout1 = {
+                title: 'Thick Cylinder Hoop Stresses',
+                xaxis: {
+                    title: 'Radius (mm)'
+                },
+                yaxis: {
+                    title: 'Hoop Stress (N/mm2)'
+                }
+            };
+
+            const data1 = [trace1];
+            Plotly.newPlot('plot1', data1, layout1);
+        });
+        submit2.addEventListener("click", (e) => {
+            e.preventDefault();
+            submit2.style.backgroundColor = "grey";
+            const internalPressure = parseFloat(document.querySelector("#int_press").value);
+            const externalPressure = parseFloat(document.querySelector("#ext_press").value);
+            const innerRadius = parseFloat(document.querySelector("#r1").value);
+            const outerRadius = parseFloat(document.querySelector("#r2").value);
+
+            const {
+                radii,
+                radialStresses
+            } = generateData(internalPressure, externalPressure, innerRadius, outerRadius);
+
+            // Plot data
+            const trace2 = {
+                x: radii,
+                y: radialStresses,
+                mode: 'curve',
+                name: 'Radial Stress'
+            };
+
+            const layout2 = {
+                title: 'Thick Cylinder Radial Stresses',
+                xaxis: {
+                    title: 'Radius (mm)'
+                },
+                yaxis: {
+                    title: 'Radial Stress (N/mm2)'
+                }
+            };
+
+            const data2 = [trace2];
+            Plotly.newPlot('plot2', data2, layout2);
+        });
+
+        // Event listener for calculating hoop and radial stresses at a specific radius
+        let calculate = document.getElementById("calculate");
+        calculate.addEventListener("click", (e) => {
+            e.preventDefault();
+            const internalPressure = parseFloat(document.querySelector("#int_press").value);
+            const externalPressure = parseFloat(document.querySelector("#ext_press").value);
+            const innerRadius = parseFloat(document.querySelector("#r1").value);
+            const outerRadius = parseFloat(document.querySelector("#r2").value);
+            const radius = parseFloat(document.querySelector("#r").value);
+
+            const hoopStress = calculateHoopStress(internalPressure, externalPressure, innerRadius, outerRadius, radius);
+            const radialStress = calculateRadialStress(internalPressure, externalPressure, innerRadius, outerRadius, radius);
+
+            document.querySelector(".hsAtr").innerHTML = hoopStress.toFixed(2) + " N/mm2";
+            document.querySelector(".rsAtr").innerHTML = radialStress.toFixed(2) + " N/mm2";
+            document.querySelector(".rValue").innerHTML = radius + " mm";
+            document.querySelector(".rData").style.display = "block";
+        });
+    </script>
+</body>
+
+</html>
