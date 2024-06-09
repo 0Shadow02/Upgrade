@@ -18,6 +18,19 @@ async function main(){
 
 
 main();
+// async function fetch(){
+//     await axiox.post("link",{
+        
+//             name:"fdsa"
+        
+//     },
+//     {
+//        headers:{
+//             auth
+//        }
+//     }
+// )
+// }
 
 // function main(){
 // fetch("https://sum-server.100xdevs.com/todos")
