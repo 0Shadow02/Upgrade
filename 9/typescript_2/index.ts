@@ -1,9 +1,18 @@
-function getFirstElement<T>(arr: T[]) {
-    return arr[0];
+export function add(x: number, y: number): number {
+    return x + y;
 }
 
-const el = getFirstElement(["harkiratSingh", "ramanSingh"]);
-console.log(el.toLowerCase())
+export function subtract(x: number, y: number): number {
+    return x - y;
+}
+
+
+// function getFirstElement<T>(arr: T[]) {
+//     return arr[0];
+// }
+
+// const el = getFirstElement(["harkiratSingh", "ramanSingh"]);
+// console.log(el.toLowerCase())
 
 
 // enum ResponseStatus {
