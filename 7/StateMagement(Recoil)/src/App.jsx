@@ -1,16 +1,33 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+
 import './App.css'
-import { Increment } from './store/atoms/Increment'
-import { useRecoilValue } from 'recoil'
+
+import { RecoilRoot, useRecoilValue, useSetRecoilState } from 'recoil'
+import { countAtom } from './store/atoms/count'
 
 function App() {
- const count = useRecoilValue(Atomics)
- return <> 
- <div>{count}</div>
- <Increment></Increment>
+
+ return <>
+ <RecoilRoot>
+  <Count></Count>
+  </RecoilRoot> 
  </>
 }
+function Count(){
+  return <div>
+    <CountRender></CountRender>
+    <Buttons/>
 
+  </div>
+}
+function CountRender(){
+  const count = useRecoilValue(countAtom)
+  return <> {count}</>
+}
+function Buttons(){
+  const setcount= useSetRecoilState(countAtom)
+  return <div>
+    <button onClick={()=>{setcount(c=>c+1)}}>Increment</button>
+    <button onClick={()=>{setcount(c=>c-1)}}>Decrement</button>
+  </div>
+}
 export default App
