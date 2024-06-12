@@ -13,8 +13,11 @@ function App() {
  </>
 }
 function Count(){
+  
   return <div>
     <CountRender></CountRender>
+    <>  </>
+    <IsEven></IsEven>
     <Buttons/>
 
   </div>
@@ -29,5 +32,11 @@ function Buttons(){
     <button onClick={()=>{setcount(c=>c+1)}}>Increment</button>
     <button onClick={()=>{setcount(c=>c-1)}}>Decrement</button>
   </div>
+}
+function IsEven(){
+  const count = useRecoilValue(countAtom)
+  return <> 
+  {count%2==0?"Is Even":null}
+  </>
 }
 export default App
