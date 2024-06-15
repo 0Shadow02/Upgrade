@@ -4,6 +4,34 @@ import viteLogo from '/vite.svg'
 import './App.css'
 
 function App() {
+const [income,setincome]= useState(20)
+const def = useRef()
+
+useEffect(()=>{
+  setTimeout(() => {
+    console.log(def.current.innerHTML)
+      def.current.innerHTML="Your income is 100000"
+  }, 2000);
+
+},[])
+
+return <div>
+<h2 ref={def} >Your income is  {income}</h2>
+{/* <h2>hello</h2> */}
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
 //   const [ExchangeData, setExchangeData]= useState(200)
  
 //   const def = useRef()
