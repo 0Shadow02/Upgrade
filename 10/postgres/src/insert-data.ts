@@ -19,4 +19,4 @@ async function insertData(username: string, email: string, password: string) {
 }
 
 // Example usage
-insertData('username5', 'user5@example.com', 'user_password').catch(console.error);
+insertData('username2', 'user2@example.com', 'user_password').catch(console.error);
