@@ -2,13 +2,7 @@ import { Client } from 'pg';
 
 // Async function to fetch user data from the database given an email
 async function getUser(email: string) {
-    const client = new Client({
-        host: 'localhost',
-        port: 5432,
-        database: 'postgres',
-        user: 'postgres',
-        password: 'mysecretpassword',
-    });
+    const client = new Client("postgresql://0amatsu0:Spt5gWhAM7iK@ep-dry-morning-a5i1dua1.us-east-2.aws.neon.tech/Space?sslmode=require");
     
 
   try {
@@ -33,4 +27,4 @@ async function getUser(email: string) {
 }
 
 // Example usage
-getUser('user5@example.com').catch(console.error);
+getUser('user2@example.com').catch(console.error);

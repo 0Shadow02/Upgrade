@@ -13,13 +13,7 @@ const pg_1 = require("pg");
 // Async function to fetch user data from the database given an email
 function getUser(email) {
     return __awaiter(this, void 0, void 0, function* () {
-        const client = new pg_1.Client({
-            host: 'localhost',
-            port: 5432,
-            database: 'postgres',
-            user: 'postgres',
-            password: 'mysecretpassword',
-        });
+        const client = new pg_1.Client("postgresql://0amatsu0:Spt5gWhAM7iK@ep-dry-morning-a5i1dua1.us-east-2.aws.neon.tech/Space?sslmode=require");
         try {
             yield client.connect(); // Ensure client connection is established
             const query = 'SELECT * FROM users WHERE email = $1';
@@ -44,4 +38,4 @@ function getUser(email) {
     });
 }
 // Example usage
-getUser('user5@example.com').catch(console.error);
+getUser('user2@example.com').catch(console.error);
