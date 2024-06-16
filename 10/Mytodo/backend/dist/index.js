@@ -47,7 +47,7 @@ function GetUserData(username) {
         console.log(res);
     });
 }
-GetUserData("Shadow@gmail.com");
+// GetUserData("Shadow@gmail.com")
 function GetAllUserData() {
     return __awaiter(this, void 0, void 0, function* () {
         const res = yield prisma.userData.findMany({
@@ -57,3 +57,36 @@ function GetAllUserData() {
     });
 }
 // GetAllUserData()
+function CreatTodo(title, description, userId) {
+    return __awaiter(this, void 0, void 0, function* () {
+        const res = yield prisma.mytodo.create({
+            data: {
+                title,
+                description,
+                userId
+            }
+        });
+        console.log(res);
+    });
+}
+// CreatTodo("Go to Gym","timings from 3pm to 5pm",2)
+function OnclickDone(id) {
+    return __awaiter(this, void 0, void 0, function* () {
+        yield prisma.mytodo.update({
+            where: { id },
+            data: {
+                done: true
+            }
+        });
+    });
+}
+// OnclickDone(1)
+function GetTodos() {
+    return __awaiter(this, void 0, void 0, function* () {
+        const res = yield prisma.mytodo.findMany({
+            where: {},
+        });
+        console.log(res);
+    });
+}
+GetTodos();

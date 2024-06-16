@@ -49,7 +49,7 @@ async function GetUserData(username:string){
     })
     console.log(res)
 }
-GetUserData("Shadow@gmail.com")
+// GetUserData("Shadow@gmail.com")
 
 async function GetAllUserData(){
     const res = await prisma.userData.findMany({
@@ -59,3 +59,36 @@ async function GetAllUserData(){
     console.log(res)
 }
 // GetAllUserData()
+
+
+async function CreatTodo(title:string,description:string,userId:number){
+    const res = await prisma.mytodo.create({
+        data:{
+            title,
+            description,
+            userId
+        }
+    })
+    console.log(res)
+}
+// CreatTodo("Go to Gym","timings from 3pm to 5pm",2)
+
+async function OnclickDone(id:number){
+    await prisma.mytodo.update({
+        where : {id},
+        data : {
+            done:true
+        }
+    })
+}
+// OnclickDone(1)
+
+
+async function GetTodos(){
+   const res =  await prisma.mytodo.findMany({
+        where : {},
+        
+    })
+    console.log(res)
+}
+// GetTodos()
