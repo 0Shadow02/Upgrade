@@ -25,7 +25,6 @@ function CreateUser(username, firstName, lastName, password) {
         console.log(res);
     });
 }
-CreateUser("Hinata@gmail.com", "Hinata", "chan", "password@12");
 function UpdateUser(username_1, _a) {
     return __awaiter(this, arguments, void 0, function* (username, { firstName, lastName }) {
         const res = yield prisma.userData.update({
@@ -40,7 +39,7 @@ function UpdateUser(username_1, _a) {
 }
 // UpdateUser("Shadow@gmail.com",{firstName:"Shadow",lastName:"Sama"})
 // Get UserData 
-function GetUserDAta(username) {
+function GetUserData(username) {
     return __awaiter(this, void 0, void 0, function* () {
         const res = yield prisma.userData.findMany({
             where: { username },
@@ -48,7 +47,8 @@ function GetUserDAta(username) {
         console.log(res);
     });
 }
-function GetAllUserDAta() {
+GetUserData("Shadow@gmail.com");
+function GetAllUserData() {
     return __awaiter(this, void 0, void 0, function* () {
         const res = yield prisma.userData.findMany({
             where: {},
@@ -56,4 +56,4 @@ function GetAllUserDAta() {
         console.log(res);
     });
 }
-// GetAllUserDAta()
+// GetAllUserData()

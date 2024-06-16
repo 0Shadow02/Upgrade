@@ -14,7 +14,7 @@ async function CreateUser(username:string,firstName:string,lastName:string,passw
     })
     console.log(res)
 }
-CreateUser("Hinata@gmail.com","Hinata","chan","password@12")
+// CreateUser("Hinata@gmail.com","Hinata","chan","password@12")
 
 // Update Uesr
 
@@ -42,20 +42,20 @@ async function UpdateUser(username:string ,{
 
 // Get UserData 
 
-async function GetUserDAta(username:string){
+async function GetUserData(username:string){
     const res = await prisma.userData.findMany({
         where : {username},
 
     })
     console.log(res)
 }
+GetUserData("Shadow@gmail.com")
 
-
-async function GetAllUserDAta(){
+async function GetAllUserData(){
     const res = await prisma.userData.findMany({
         where : {},
 
     })
     console.log(res)
 }
-// GetAllUserDAta()
+// GetAllUserData()
