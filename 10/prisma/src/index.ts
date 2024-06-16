@@ -3,7 +3,7 @@ const prisma = new PrismaClient()
 
 
 async function intertUser(email:string,password:string,firstName:string , lastName:string){
-    prisma.user.create({
+   const res = await prisma.user.create({
         data:{
             email,
             password,
@@ -11,4 +11,5 @@ async function intertUser(email:string,password:string,firstName:string , lastNa
             lastName
         }
     })
+    console.log(res)
 }
