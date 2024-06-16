@@ -10,7 +10,7 @@ async function getUser() {
   }) 
   console.log({user:res})
 }
-getUser()
+// getUser()
 
 
 
@@ -18,23 +18,23 @@ getUser()
 
 // Update User:-->
 
-// interface UpdateParams {
-//     firstName:string,
-//     lastName:string
-// }
-// async function updateUser(username:string, {
-//     firstName,
-//     lastName
-// }:UpdateParams){
-//    const res = await prisma.user.update({
-//         where: {email:username},
-//         data:{
-//             firstName,
-//             lastName
-//         }
-//     })
-//     console.log(res)
-// }
+interface UpdateParams {
+    firstName:string,
+    lastName:string
+}
+async function updateUser(username:string, {
+    firstName,
+    lastName
+}:UpdateParams){
+   const res = await prisma.user.update({
+        where: {email:username},
+        data:{
+            firstName,
+            lastName
+        }
+    })
+    console.log(res)
+}
 // updateUser("shadow@gmail.com",{firstName:"dragon",lastName:"sama"})
 
 
@@ -49,16 +49,16 @@ getUser()
 // Create User:--->
 
 
-// async function insertUser(email:string,password:string,firstName:string , lastName:string){
-//    const res = await prisma.user.create({
-//         data:{
-//             email,
-//             password,
-//             firstName,
-//             lastName
-//         }
-//     })
-//     console.log(res)
-// }
+async function insertUser(email:string,password:string,firstName:string , lastName:string){
+   const res = await prisma.user.create({
+        data:{
+            email,
+            password,
+            firstName,
+            lastName
+        }
+    })
+    console.log(res)
+}
 // insertUser("ryuji@gmail.com","password@32","ryuji","kun")
 
