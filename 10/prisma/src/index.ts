@@ -2,13 +2,21 @@ import { PrismaClient } from '@prisma/client'
 import { emit } from 'process'
 const prisma = new PrismaClient()
 
-// async function getUser(username: string) {
-//   const res=  await prisma.user.findMany({
-//     where: {email:username}
-//   }) 
-//   console.log({user:res})
-// }
-// getUser("shadow@gmail.com")
+// Get user:-->
+
+async function getUser() {
+  const res=  await prisma.user.findMany({
+    where: {}
+  }) 
+  console.log({user:res})
+}
+getUser()
+
+
+
+
+
+// Update User:-->
 
 // interface UpdateParams {
 //     firstName:string,
@@ -28,6 +36,19 @@ const prisma = new PrismaClient()
 //     console.log(res)
 // }
 // updateUser("shadow@gmail.com",{firstName:"dragon",lastName:"sama"})
+
+
+
+
+
+
+
+
+
+
+// Create User:--->
+
+
 // async function insertUser(email:string,password:string,firstName:string , lastName:string){
 //    const res = await prisma.user.create({
 //         data:{
@@ -39,5 +60,5 @@ const prisma = new PrismaClient()
 //     })
 //     console.log(res)
 // }
-// insertUser("shadow@gmail.com","password@12","shadow","san")
+// insertUser("ryuji@gmail.com","password@32","ryuji","kun")
 

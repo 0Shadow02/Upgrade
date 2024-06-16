@@ -11,15 +11,17 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 const client_1 = require("@prisma/client");
 const prisma = new client_1.PrismaClient();
-function getUser(username) {
+// Get user:-->
+function getUser() {
     return __awaiter(this, void 0, void 0, function* () {
         const res = yield prisma.user.findMany({
-            where: { email: username }
+            where: {}
         });
         console.log({ user: res });
     });
 }
-getUser("shadow@gmail.com");
+getUser();
+// Update User:-->
 // interface UpdateParams {
 //     firstName:string,
 //     lastName:string
@@ -38,6 +40,7 @@ getUser("shadow@gmail.com");
 //     console.log(res)
 // }
 // updateUser("shadow@gmail.com",{firstName:"dragon",lastName:"sama"})
+// Create User:--->
 // async function insertUser(email:string,password:string,firstName:string , lastName:string){
 //    const res = await prisma.user.create({
 //         data:{
@@ -49,4 +52,4 @@ getUser("shadow@gmail.com");
 //     })
 //     console.log(res)
 // }
-// insertUser("shadow@gmail.com","password@12","shadow","san")
+// insertUser("ryuji@gmail.com","password@32","ryuji","kun")
