@@ -13,17 +13,11 @@ datasource db {
   url      = "postgresql://neondb_owner:5ysQeZlv8hKx@ep-floral-flower-a5jmxfw1.us-east-2.aws.neon.tech/neondb?sslmode=require"
 }
 
- model Signup {
+ model UserData {
   id   Int @id @default(autoincrement())
   username  String @unique
   firstName String @unique
   lastName  String?
-  password  String
-
- }
- model Signin {
-  id   Int @id @default(autoincrement())
-  username  String 
   password  String
 
  }
