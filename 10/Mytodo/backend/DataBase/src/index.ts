@@ -3,7 +3,7 @@ import { PrismaClient } from "@prisma/client";
 const prisma = new PrismaClient();
 
 // Create User
-async function CreateUser(username:string,firstName:string,lastName:string,password:string ){
+export async function CreateUser(username:string,firstName:string,lastName:string,password:string ){
     const res = await prisma.userData.create({
         data:{
             username,
@@ -12,7 +12,7 @@ async function CreateUser(username:string,firstName:string,lastName:string,passw
             password,
         }
     })
-    console.log(res)
+   return res
 }
 // CreateUser("Hinata@gmail.com","Hinata","chan","password@12")
 
@@ -23,7 +23,7 @@ interface UpdateParams {
     firstName :string,
     lastName : string
 }
-async function UpdateUser(username:string ,{
+export async function UpdateUser(username:string ,{
     firstName, 
     lastName
 }:UpdateParams){
@@ -42,26 +42,26 @@ async function UpdateUser(username:string ,{
 
 // Get UserData 
 
-async function GetUserData(username:string){
+export async function GetUserData(username:string){
     const res = await prisma.userData.findMany({
         where : {username},
 
     })
     console.log(res)
 }
-// GetUserData("Shadow@gmail.com")
+// GetUserData("Shadow33@gmail.com")
 
-async function GetAllUserData(){
+export async function GetAllUserData(){
     const res = await prisma.userData.findMany({
         where : {},
 
     })
-    console.log(res)
+    return res
 }
 // GetAllUserData()
 
 
-async function CreatTodo(title:string,description:string,userId:number){
+export async function CreatTodo(title:string,description:string,userId:number){
     const res = await prisma.mytodo.create({
         data:{
             title,
@@ -73,7 +73,7 @@ async function CreatTodo(title:string,description:string,userId:number){
 }
 // CreatTodo("Go to Gym","timings from 3pm to 5pm",2)
 
-async function OnclickDone(id:number){
+export async function OnclickDone(id:number){
     await prisma.mytodo.update({
         where : {id},
         data : {
@@ -84,7 +84,7 @@ async function OnclickDone(id:number){
 // OnclickDone(1)
 
 
-async function GetTodos(){
+export async function GetTodos(){
    const res =  await prisma.mytodo.findMany({
         where : {},
         

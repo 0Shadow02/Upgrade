@@ -9,6 +9,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.GetTodos = exports.OnclickDone = exports.CreatTodo = exports.GetAllUserData = exports.GetUserData = exports.UpdateUser = exports.CreateUser = void 0;
 const client_1 = require("@prisma/client");
 const prisma = new client_1.PrismaClient();
 // Create User
@@ -22,9 +23,10 @@ function CreateUser(username, firstName, lastName, password) {
                 password,
             }
         });
-        console.log(res);
+        return res;
     });
 }
+exports.CreateUser = CreateUser;
 function UpdateUser(username_1, _a) {
     return __awaiter(this, arguments, void 0, function* (username, { firstName, lastName }) {
         const res = yield prisma.userData.update({
@@ -37,6 +39,7 @@ function UpdateUser(username_1, _a) {
         console.log(res);
     });
 }
+exports.UpdateUser = UpdateUser;
 // UpdateUser("Shadow@gmail.com",{firstName:"Shadow",lastName:"Sama"})
 // Get UserData 
 function GetUserData(username) {
@@ -47,15 +50,17 @@ function GetUserData(username) {
         console.log(res);
     });
 }
-// GetUserData("Shadow@gmail.com")
+exports.GetUserData = GetUserData;
+// GetUserData("Shadow33@gmail.com")
 function GetAllUserData() {
     return __awaiter(this, void 0, void 0, function* () {
         const res = yield prisma.userData.findMany({
             where: {},
         });
-        console.log(res);
+        return res;
     });
 }
+exports.GetAllUserData = GetAllUserData;
 // GetAllUserData()
 function CreatTodo(title, description, userId) {
     return __awaiter(this, void 0, void 0, function* () {
@@ -69,6 +74,7 @@ function CreatTodo(title, description, userId) {
         console.log(res);
     });
 }
+exports.CreatTodo = CreatTodo;
 // CreatTodo("Go to Gym","timings from 3pm to 5pm",2)
 function OnclickDone(id) {
     return __awaiter(this, void 0, void 0, function* () {
@@ -80,6 +86,7 @@ function OnclickDone(id) {
         });
     });
 }
+exports.OnclickDone = OnclickDone;
 // OnclickDone(1)
 function GetTodos() {
     return __awaiter(this, void 0, void 0, function* () {
@@ -89,4 +96,5 @@ function GetTodos() {
         console.log(res);
     });
 }
-GetTodos();
+exports.GetTodos = GetTodos;
+// GetTodos()
