@@ -2,38 +2,41 @@
 import './App.css'
 import { useEffect, useState } from 'react';
 
-
-const SearchBar=()=>{
-  const [time,settime]= useState(0)
-  const [subcription,setsubscription]=useState(true)
-  useEffect(()=>{
-   const timer = setTimeout(() => {
-      setsubscription(false)
-    }, 5000);
-    const clock =setInterval(()=>{
-      settime(c=>c+1)
-    },1000)
-
-    return ()=>{
-      clearTimeout(timer)
-      clearInterval(clock)
-    }
-  },[])
-  return<> 
-  <div>Time until your subscription expires: {time < 6?time:"opps!"}</div>
-  {subcription? <ViewSubs></ViewSubs> : <div>Your Subsciption has expired</div>} 
-  </>
-}
-function ViewSubs(){
-  useEffect(()=>{
-        console.log("hi there rerender")
+const UseIsonline =()=>{
     
-    return ()=>console.log("bye there rerender")
-  },[])
-  return <> 
-  Your subscription is active right now
-  </>
+  
 }
+// const SearchBar=()=>{
+//   const [time,settime]= useState(0)
+//   const [subcription,setsubscription]=useState(true)
+//   useEffect(()=>{
+//    const timer = setTimeout(() => {
+//       setsubscription(false)
+//     }, 5000);
+//     const clock =setInterval(()=>{
+//       settime(c=>c+1)
+//     },1000)
+
+//     return ()=>{
+//       clearTimeout(timer)
+//       clearInterval(clock)
+//     }
+//   },[])
+//   return<> 
+//   <div>Time until your subscription expires: {time < 6?time:"opps!"}</div>
+//   {subcription? <ViewSubs></ViewSubs> : <div>Your Subsciption has expired</div>} 
+//   </>
+// }
+// function ViewSubs(){
+//   useEffect(()=>{
+//         console.log("hi there rerender")
+    
+//     return ()=>console.log("bye there rerender")
+//   },[])
+//   return <> 
+//   Your subscription is active right now
+//   </>
+// }
 
 // const SearchBar = ()=>{
 //   const [count ,setcount] = useState(0)
