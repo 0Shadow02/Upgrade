@@ -7,20 +7,25 @@ const SearchBar=()=>{
   const [time,settime]= useState(0)
   const [subcription,setsubscription]=useState(true)
   useEffect(()=>{
-    setTimeout(() => {
+   const timer = setTimeout(() => {
       setsubscription(false)
-    }, 15000);
-    setInterval(()=>{
+    }, 5000);
+    const clock =setInterval(()=>{
       settime(c=>c+1)
     },1000)
+
+    return ()=>{
+      clearTimeout(timer)
+      clearInterval(clock)
+    }
   },[])
   return<> 
-  <div>Time until your subscription expires: {time < 16?time:"opps!"}</div>
+  <div>Time until your subscription expires: {time < 6?time:"opps!"}</div>
   {subcription? <ViewSubs></ViewSubs> : <div>Your Subsciption has expired</div>} 
   </>
 }
 function ViewSubs(){
-  useState(()=>{
+  useEffect(()=>{
         console.log("hi there rerender")
     
     return ()=>console.log("bye there rerender")
