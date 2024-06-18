@@ -3,8 +3,8 @@ import './App.css'
 import { useEffect, useState } from 'react';
 
 const UseIsonline =()=>{
-    
-  
+    window.addEventListener(window.navigator.onLine)
+
 }
 // const SearchBar=()=>{
 //   const [time,settime]= useState(0)
