@@ -1,36 +1,48 @@
 
 import './App.css'
 import { useEffect, useState } from 'react';
-
-
-
-function useDebounce(inputValue,n){
-  const [val,setval]=useState(0)
+const SearchBar = ()=>{
+  const [count ,setcount] = useState(0)
   useEffect(()=>{
-   const time= setTimeout(() => {
-      setval(inputValue)
-    }, n)
-    return ()=>{ clearTimeout(val)}
-  },[inputValue])
-  return val
+
+    
+    console.log("hi there rerender")
+    
+    return ()=>console.log("bye there rerender")
+  },[count])
+
+  return <div> 
+  <button onClick={()=>setcount(c=>c+1)}> Count {count}</button>
+  </div>
 }
 
-const SearchBar = () => {
-  const [inputValue, setInputValue] = useState('');
-  const debouncedValue = useDebounce(inputValue, 800); // milliseconds debounce delay
-  // Use the debouncedValue in your component logic, e.g., trigger a search API call via a useEffect
-  return (
-    <div>
+// function useDebounce(inputValue,n){
+//   const [val,setval]=useState(0)
+//   useEffect(()=>{
+//    const time= setTimeout(() => {
+//       setval(inputValue)
+//     }, n)
+//     return ()=>{ clearTimeout(val)}
+//   },[inputValue])
+//   return val
+// }
 
-    <input
-      type="text"
-      value={inputValue}
-      onChange={(e) => setInputValue(e.target.value)}
-      />
-    <div> {debouncedValue}</div>
-      </div>
-  );
-};
+// const SearchBar = () => {
+//   const [inputValue, setInputValue] = useState('');
+//   const debouncedValue = useDebounce(inputValue, 800); // milliseconds debounce delay
+//   // Use the debouncedValue in your component logic, e.g., trigger a search API call via a useEffect
+//   return (
+//     <div>
+
+//     <input
+//       type="text"
+//       value={inputValue}
+//       onChange={(e) => setInputValue(e.target.value)}
+//       />
+//     <div> {debouncedValue}</div>
+//       </div>
+//   );
+// };
 export default SearchBar;
 
 
