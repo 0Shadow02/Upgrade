@@ -1,20 +1,49 @@
 
 import './App.css'
 import { useEffect, useState } from 'react';
-const SearchBar = ()=>{
-  const [count ,setcount] = useState(0)
-  useEffect(()=>{
 
-    
-    console.log("hi there rerender")
+
+const SearchBar=()=>{
+  const [time,settime]= useState(0)
+  const [subcription,setsubscription]=useState(true)
+  useEffect(()=>{
+    setTimeout(() => {
+      setsubscription(false)
+    }, 15000);
+    setInterval(()=>{
+      settime(c=>c+1)
+    },1000)
+  },[])
+  return<> 
+  <div>Time until your subscription expires: {time < 16?time:"opps!"}</div>
+  {subcription? <ViewSubs></ViewSubs> : <div>Your Subsciption has expired</div>} 
+  </>
+}
+function ViewSubs(){
+  useState(()=>{
+        console.log("hi there rerender")
     
     return ()=>console.log("bye there rerender")
-  },[count])
-
-  return <div> 
-  <button onClick={()=>setcount(c=>c+1)}> Count {count}</button>
-  </div>
+  },[])
+  return <> 
+  Your subscription is active right now
+  </>
 }
+
+// const SearchBar = ()=>{
+//   const [count ,setcount] = useState(0)
+//   useEffect(()=>{
+
+    
+//     console.log("hi there rerender")
+    
+//     return ()=>console.log("bye there rerender")
+//   },[count])
+
+//   return <div> 
+//   <button onClick={()=>setcount(c=>c+1)}> Count {count}</button>
+//   </div>
+// }
 
 // function useDebounce(inputValue,n){
 //   const [val,setval]=useState(0)
