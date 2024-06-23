@@ -1,7 +1,13 @@
-function greeting(props:string){
-console.log("HELLO " + props)
+
+function sum(a:number,b:number){
+    console.log(a+b)
 }
-greeting("shadow")
+
+
+// function greeting(props:string){
+// console.log("HELLO " + props)
+// }
+// greeting("shadow")
 
 // let num = 3
 // num = 4
