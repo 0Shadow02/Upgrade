@@ -24,28 +24,28 @@ function dofunction(arr:number[]|string[]){
 console.log(dofunction(arr))
 console.log(dofunction(arr1))
 
-// function time(fn:()=>void,t:number){
-//     setTimeout(fn,t)
-// }
+function time(fn:()=>void,t:number){
+    setTimeout(fn,t)
+}
 
-// time(()=>{
-//     console.log("hello")
-// },3000)
+time(()=>{
+    console.log("hello")
+},3000)
 
-// function isLegal(age: number) {
-//     if (age > 18) {
-//         return true;
-//     } else {
-//         return false
-//     }
-// }
-// interface user {
-//     firstName: string,
-//     lastName: string,
-//     password: string,
-//     id: number,
-//     age:number
-// }
+function isLegal(age: number) {
+    if (age > 18) {
+        return true;
+    } else {
+        return false
+    }
+}
+interface user {
+    firstName: string,
+    lastName: string,
+    password: string,
+    id: number,
+    age:number
+}
 
 // const User = {
 //     firstName:"shadow",
