@@ -52,12 +52,23 @@ import { number, string } from "zod";
 //     age: number
 // }
 
-type stringornumber = string|number
-const num:stringornumber= 34
-console.log(num)
+// type stringornumber = string|number
+// const num:stringornumber= 34
+// console.log(num)
 
+// const arr =[2,34,55,7 ,8,23]
 
-
+// function biggestnumber(arr:number[]){
+//     let a:number=0
+//     for (let i = 0; i < arr.length; i++) {
+//         if(a<arr[i]){
+//             a =arr[i]
+//         }
+        
+//     }
+//     return a
+// }
+// console.log(biggestnumber(arr))
 
 
 
