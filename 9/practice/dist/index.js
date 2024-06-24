@@ -1,17 +1,23 @@
 "use strict";
 // const greet = (name) => `Hello, ${name}!`;
-var Direction;
-(function (Direction) {
-    Direction[Direction["Up"] = 0] = "Up";
-    Direction[Direction["Down"] = 1] = "Down";
-    Direction[Direction["Left"] = 2] = "Left";
-    Direction[Direction["Right"] = 3] = "Right";
-})(Direction || (Direction = {}));
-function doSomething(keyPressed) {
-    // do something.
+// import { number } from "zod"
+// enum Direction {
+//     Up,
+//     Down,
+//     Left,
+//     Right
+// }
+// function doSomething(keyPressed: Direction) {
+// 	// do something.
+// }
+const arr = [23, 454, 66, 2, 5];
+// doSomething(Direction.Up)
+// console.log(Direction.Up)
+function dofunction(arr) {
+    const val = arr[0];
+    return val;
 }
-doSomething(Direction.Up);
-console.log(Direction.Up);
+console.log(dofunction(arr));
 // function time(fn:()=>void,t:number){
 //     setTimeout(fn,t)
 // }

@@ -1,19 +1,26 @@
 // const greet = (name) => `Hello, ${name}!`;
 
-enum Direction {
-    Up,
-    Down,
-    Left,
-    Right
+// import { number } from "zod"
+
+// enum Direction {
+//     Up,
+//     Down,
+//     Left,
+//     Right
+// }
+
+// function doSomething(keyPressed: Direction) {
+// 	// do something.
+// }
+const arr= [23,454,66, 2,5]
+// doSomething(Direction.Up)
+// console.log(Direction.Up)
+
+function dofunction(arr:number[]){
+   const val=  arr[0]
+   return val
 }
-
-function doSomething(keyPressed: Direction) {
-	// do something.
-}
-
-doSomething(Direction.Up)
-console.log(Direction.Up)
-
+console.log(dofunction(arr))
 // function time(fn:()=>void,t:number){
 //     setTimeout(fn,t)
 // }
