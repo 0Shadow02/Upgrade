@@ -1,7 +1,18 @@
 // const greet = (name) => `Hello, ${name}!`;
 
-import { types } from "pg";
-import { number, string } from "zod";
+enum Direction {
+    Up,
+    Down,
+    Left,
+    Right
+}
+
+function doSomething(keyPressed: Direction) {
+	// do something.
+}
+
+doSomething(Direction.Up)
+console.log(Direction.Up)
 
 // function time(fn:()=>void,t:number){
 //     setTimeout(fn,t)
