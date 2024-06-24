@@ -11,6 +11,7 @@
 // 	// do something.
 // }
 const arr = [23, 454, 66, 2, 5];
+const arr1 = ["v", "b", "c", "d", "e"];
 // doSomething(Direction.Up)
 // console.log(Direction.Up)
 function dofunction(arr) {
@@ -18,6 +19,7 @@ function dofunction(arr) {
     return val;
 }
 console.log(dofunction(arr));
+console.log(dofunction(arr1));
 // function time(fn:()=>void,t:number){
 //     setTimeout(fn,t)
 // }
