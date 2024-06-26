@@ -1,8 +1,8 @@
 import { Hono } from 'hono'
 const app = new Hono()
 
-app.get('/', (c) => {
-	c.res.json({msg:"hello there"})
+app.get('/',(c)=> {
+	return c.json("hello")
 })
 
 export default app
