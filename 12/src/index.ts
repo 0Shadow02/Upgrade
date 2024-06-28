@@ -8,9 +8,14 @@ interface User{
     id:string
 }
 type updatedata = Pick<User, 'age'|'name'|'passwrod'>
+// Partial
+type UpdatepropsOptoinal = Partial<updatedata>
 function updateUser(updatedata:updatedata){
 
 }
+// Readonly
+
+
 
 
 // interface User {
