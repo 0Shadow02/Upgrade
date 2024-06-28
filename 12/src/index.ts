@@ -1,3 +1,4 @@
+import z from 'zod'
 // Pick 
 
 interface User{
@@ -25,7 +26,10 @@ function handler(event:ExcludeEvent){
 // {Key value pairs} //
 // Record && Map ////
 
-
+const uesrdataschema = z.object({
+    name:z.string(),
+    emial:z.string().email().optional()
+})
   
 
 // interface User {
