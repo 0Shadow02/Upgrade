@@ -20,5 +20,6 @@ app.post('/', async (c) => {
 
   return c.text('Hello Hono!')
 })
+console.log("")
 
 export default app
