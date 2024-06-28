@@ -15,6 +15,8 @@ function updateUser(updatedata:updatedata){
 
 }
 
+// {Exclude}
+
 type eventtype = 'click'|'scroll'|'mousemove'
 type ExcludeEvent = Exclude<eventtype , "scroll">
 function handler(event:ExcludeEvent){
