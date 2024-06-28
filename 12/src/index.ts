@@ -24,9 +24,9 @@ function handler(event:ExcludeEvent){
 }
 // handler("scroll") gives error
 
-// Readonly
+// {Readonly}
 // {Key value pairs} //
-// Record && Map ////
+// {Record && Map} ////
 
 const uesrdataschema = z.object({
     name:z.string(),
