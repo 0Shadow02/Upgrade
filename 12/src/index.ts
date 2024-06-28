@@ -32,9 +32,10 @@ const uesrdataschema = z.object({
     name:z.string(),
     emial:z.string().email().optional()
 })
+
 type finaluserdata = z.infer<typeof uesrdataschema>
   
-
+// {same}
 // interface User {
 //     name: string,
 //     age: number
