@@ -1,11 +1,26 @@
-interface User {
-    name: string,
-    age: number
+// Pick 
+
+interface User{
+    name:string,
+    age:number,
+    email:string,
+    passwrod:string,
+    id:string
+}
+type updatedata = Pick<User, 'age'|'name'|'passwrod'>
+function updateUser(updatedata:updatedata){
+
 }
 
-function sumOfAge(user1:User,user2:User){
-    return user1.age+ user2.age
-}
 
-const age =  sumOfAge({name:"shadow",age:20},{name:"dragon",age:22})
-console.log(age)
+// interface User {
+//     name: string,
+//     age: number
+// }
+
+// function sumOfAge(user1:User,user2:User){
+//     return user1.age+ user2.age
+// }
+
+// const age =  sumOfAge({name:"shadow",age:20},{name:"dragon",age:22})
+// console.log(age)
