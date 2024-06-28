@@ -1,5 +1,5 @@
 import z from 'zod'
-// Pick 
+// {Pick}
 
 interface User{
     name:string,
@@ -9,7 +9,7 @@ interface User{
     id:string
 }
 type updatedata = Pick<User, 'age'|'name'|'passwrod'>
-// Partial
+// {Partial}
 type UpdatepropsOptoinal = Partial<updatedata>
 function updateUser(updatedata:updatedata){
 
@@ -30,6 +30,7 @@ const uesrdataschema = z.object({
     name:z.string(),
     emial:z.string().email().optional()
 })
+type finaluserdata = z.infer<typeof uesrdataschema>
   
 
 // interface User {
