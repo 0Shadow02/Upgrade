@@ -13,10 +13,20 @@ type UpdatepropsOptoinal = Partial<updatedata>
 function updateUser(updatedata:updatedata){
 
 }
+
+type eventtype = 'click'|'scroll'|'mousemove'
+type ExcludeEvent = Exclude<eventtype , "scroll">
+function handler(event:ExcludeEvent){
+    return 1
+}
+// handler("scroll") gives error
+
 // Readonly
+// {Key value pairs} //
+// Record && Map ////
 
 
-
+  
 
 // interface User {
 //     name: string,
