@@ -45,7 +45,7 @@ async function createTodo(user_id: number, title: string, description: string) {
 
 }
 
-// createTodo(1, "study DSA", "timings from 2pm to 4pm");
+createTodo(3, "study DSA", "timings from 2pm to 4pm");
 
 async function gettodo(user_id:number){
   const response=  await prisma.todo.findMany({
@@ -72,5 +72,5 @@ async function button(id:number){
         }
     })
 }
-gettodo(1)
+// gettodo(1)
 // button(1)

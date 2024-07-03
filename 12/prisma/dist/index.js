@@ -49,12 +49,18 @@ function createTodo(user_id, title, description) {
         });
     });
 }
-createTodo(1, "study DSA", "timings from 2pm to 4pm");
+createTodo(3, "study DSA", "timings from 2pm to 4pm");
 function gettodo(user_id) {
     return __awaiter(this, void 0, void 0, function* () {
         const response = yield prisma.todo.findMany({
             where: {
                 user_id
+            },
+            select: {
+                title: true,
+                description: true,
+                done: true,
+                user: true,
             }
         });
         console.log(response);
@@ -72,5 +78,5 @@ function button(id) {
         });
     });
 }
-gettodo(1);
-button(1);
+// gettodo(1)
+// button(1)
