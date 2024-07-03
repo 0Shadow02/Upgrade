@@ -45,4 +45,25 @@ async function createTodo(user_id: number, title: string, description: string) {
 
 }
 
-createTodo(1, "study DSA", "timings from 2pm to 4pm");
+// createTodo(1, "study DSA", "timings from 2pm to 4pm");
+
+async function gettodo(user_id:number){
+  const response=  await prisma.todo.findMany({
+        where: {
+            user_id
+        }
+    })
+    console.log(response)
+}
+async function button(id:number){
+    await prisma.todo.update({
+        where: {
+            id
+        },
+        data:{
+            done: true
+        }
+    })
+}
+gettodo(1)
+// button(1)
