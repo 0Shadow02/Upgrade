@@ -11,29 +11,42 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 const client_1 = require("@prisma/client");
 const prisma = new client_1.PrismaClient();
-function insertUser(username, password, firstName, lastName) {
+// async function insertUser(username:string, password:string,firstName:string,lastName:string){
+//      await prisma.users.create({
+//     data: {
+//         username,
+//         password ,
+//         firstName ,
+//         lastName ,
+//     }
+// })
+// }
+// // insertUser("dark@gmail.com","Pass123","dark","sama")
+// interface updatedata {
+//     firstName?:string
+//     lastName?: string
+// }
+// async function updateUser(id:number,updatedata:updatedata){
+//  const response= await prisma.users.update({
+//     where: {
+//       id : id
+//     },
+//     data: {
+//       lastName:updatedata.lastName
+//     }
+//   })
+//   console.log(response)
+// }
+// updateUser(1,{lastName:"san"})
+function createTodo(user_id, title, description) {
     return __awaiter(this, void 0, void 0, function* () {
-        yield prisma.users.create({
+        yield prisma.todo.create({
             data: {
-                username,
-                password,
-                firstName,
-                lastName,
+                user_id,
+                title,
+                description,
             }
         });
     });
 }
-function updateUser(id, updatedata) {
-    return __awaiter(this, void 0, void 0, function* () {
-        const response = yield prisma.users.update({
-            where: {
-                id: id
-            },
-            data: {
-                lastName: updatedata.lastName
-            }
-        });
-        console.log(response);
-    });
-}
-updateUser(1, { lastName: "san" });
+createTodo(1, "study DSA", "timings from 2pm to 4pm");
