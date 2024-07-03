@@ -51,6 +51,13 @@ async function gettodo(user_id:number){
   const response=  await prisma.todo.findMany({
         where: {
             user_id
+        },
+        select:{
+            title:true,
+            description:true,
+            done:true,
+            user:true,
+
         }
     })
     console.log(response)
