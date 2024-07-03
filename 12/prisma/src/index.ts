@@ -73,4 +73,4 @@ async function button(id:number){
     })
 }
 // gettodo(1)
-// button(1)
+button(1)
