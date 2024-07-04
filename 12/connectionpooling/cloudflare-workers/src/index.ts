@@ -25,6 +25,6 @@ async fetch (
 	},
 	});
 	console.log(JSON.stringify(response))
-	return new Response(`request method: ${request.method}!`)
+	return  Response.json(response)
 	}
 }
