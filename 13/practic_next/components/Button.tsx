@@ -1,18 +1,20 @@
 "use client"
-
 import axios from "axios";
-import { useState } from "react";
+import { useRouter } from "next/navigation";
 interface userdata{
     username:string,
     password:string
 }
 export function Button({username,password}:userdata){
-     
+     const router = useRouter()
      async function handler(){
           axios.post("http://localhost:3000/api/user", {
             username,
             password
-        }).then(()=>console.log(username) )
+        }).then(()=>{
+            console.log(username) 
+            router.push("/")
+        })
         
      }
     return <div>
