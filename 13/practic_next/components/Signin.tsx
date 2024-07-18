@@ -17,7 +17,9 @@ export const SigninComponent = ()=>{
                     </div>
                 </div>
                 <div className="pt-2">
-                    
+                    <LabelledInput onchange={(e)=>setusername(e.target.value)} label="Username" placeholder="harkirat@gmail.com"  />
+                    <LabelledInput onchange={(e)=>setpassword(e.target.value)} label="Password" type={"password"} placeholder="123456" />
+                    <Button username={username} password={password}></Button>
                 </div>
             </div>
         </a>
