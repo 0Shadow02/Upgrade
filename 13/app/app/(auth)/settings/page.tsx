@@ -1,6 +1,7 @@
 "use client"
 
 import { useRouter } from "next/navigation"
+import { disconnect } from "process"
 import { useState } from "react"
 
 export default function Settings() {
@@ -29,4 +30,8 @@ export const Loader=()=>{
     
         </div>
 }
-// change
+const Adder=()=>{
+    return <div>
+        Added button
+    </div>
+}
