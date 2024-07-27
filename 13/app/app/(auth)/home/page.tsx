@@ -5,3 +5,5 @@ export default function Dashboard() {
         <Hskeleton/>
     </div>
 }
+
+
