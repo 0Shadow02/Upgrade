@@ -17,5 +17,4 @@ model User {
    id  Int       @id @default(autoincrement())
    FirstName String
    des  String
-   lastName String
 }
