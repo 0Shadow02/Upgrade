@@ -10,7 +10,6 @@ export default function Hskeleton() {
        <HS/>
        <HS/>
        <HS/>
-  
       </div>
         </div>
 }
