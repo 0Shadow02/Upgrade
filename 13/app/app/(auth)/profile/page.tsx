@@ -1,6 +1,15 @@
+import { PrismaClient } from "@prisma/client"
 
-export default function Profile() {
-    return <div>
-        Profile
+const prisma = new PrismaClient()
+
+export default async function Profile() {
+    await new Promise(r=>setTimeout(r,2000))
+    const response = await prisma.user.findFirst({
+        select:{
+            des:true
+        }
+    })
+    return <div >
+       {response?.des}
     </div>
 }
