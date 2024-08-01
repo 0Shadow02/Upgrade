@@ -13,7 +13,7 @@ const handler = NextAuth({
             
             return {
                 id: "user1",
-                username:"Shadow",
+                name:"Shadow",
                 email:"shadow@gmail.com"
             };
         },
