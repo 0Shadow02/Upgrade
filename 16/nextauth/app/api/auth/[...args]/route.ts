@@ -1,5 +1,8 @@
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 
-export default function GET(){
-    return NextResponse.json("healty server")
+export function GET(req:NextRequest){
+
+    return NextResponse.json({
+        msg:"healty server"
+    })
 }
