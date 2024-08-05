@@ -1,101 +1,43 @@
-import React, { Suspense, startTransition, useContext, useState } from 'react'
-import { CountContex } from './components/Context'
-// import { BrowserRouter, Route, Routes, useNavigate } from 'react-router-dom'
-// const Dashboard = React.lazy(()=> import('./components/Dashboard') ) 
-// const Landing = React.lazy(()=> import('./components/Landing') 
-//  ) 
+import { useEffect, useState } from 'react'
+import { RecoilRoot, useRecoilState, useRecoilValue } from 'recoil'
+import { avatarselector, notifications } from './Atoms'
+import axios from 'axios'
 
-function App(){
-  const [count,setcount] = useState(0)
-  return (
-    <div>
-      <CountContex.Provider value={{count:count,setcount:setcount}} >
+function App() {
+  return <>
 
-      <Count> </Count>
-      </CountContex.Provider>
-     
-    </div>
-  )
+  <RecoilRoot>
+  <MainApp></MainApp>
+  <Myavatar></Myavatar>
+  </RecoilRoot>
+  </>
 }
 
-function Count(){
-  return <div> 
-    <CountRender></CountRender>
-   <Buttons ></Buttons>
-  </div>
-}
-function CountRender(){
-  const count = useContext(CountContex)
-  return <div> {count}</div>
-}
-function Buttons(){
-  const {count,setcount} = useContext(CountContex)
-    return <div>
-    <button onClick={()=>{
-      setcount(count +1)
-    }} >Increment</button>
-    <button onClick={()=>{
-      setcount(count -1)
-    } }>Decrement</button>
-    
-    </div>
-
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// function App() {
-//   const [count, setCount] = useState(0)
- 
-//   return (
-   
-//    <>
-   
-//    <BrowserRouter>
-//       <Appbar></Appbar>
-//       <Routes>
-//        <Route path='/dashboard' element={<Suspense fallback={"loading..."}> <Dashboard></Dashboard></Suspense>  } ></Route>
-//       <Route path='/' element={<Suspense fallback={"loading..."}> <Landing></Landing></Suspense> } > 
-//       </Route>
-//       </Routes>    
-//    </BrowserRouter>
-//    </>
-//   )
-// }
-// function Appbar(){
-//   const navigate = useNavigate();
-
-//     return <>
-//         <div  > 
-//         <button onClick={()=>{
-//         navigate("/dashboard")
-//         }} >Dashboard</button>
-//         <button onClick={()=>{
-//           navigate("/")
-//         }} >Landing</button>
-//       </div>
-// </>
-
+function MainApp(){
+  const [notificationcount , setnotificationcount] = useRecoilState(notifications) 
 
   
-// }
+    
+  return (
+    <>
+    
 
-
-
-
+      <button>Home</button>
+      <button>My network({notificationcount.network > 100 ? "99+" : notificationcount.network})</button>
+      <button>Jobs({notificationcount.jobs})</button>
+      <button>Messaging({notificationcount.messaging})</button>
+      <button>Notification({notificationcount.notifications})</button>
+     
+    
+    </>
+  )
+}
+function Myavatar(){
+  const totalcount = useRecoilValue(avatarselector)
+  return <> 
+    <button>Avatar({totalcount})</button>
+  
+  </>
+}
 
 export default App
