@@ -111,3 +111,20 @@ export default function Home() {
     </main>
   );
 }
+
+// http request -- fetch request doesn't provide cahe normally 
+// use can use force cache in fetch
+// fetch('https://...', { cache: 'force-cache' })
+
+// Data fecthing library and orm's --
+import { getUser } from './data'
+import { unstable_cache } from 'next/cache'
+ 
+const getCachedUser = unstable_cache(async (id) => getUser(id), ['my-app-user'])
+ 
+export default async function Component({ userID }) {
+  const user = await getCachedUser(userID)
+  return user
+}
+// Revalidating data --
+to recath data in fetch request 
