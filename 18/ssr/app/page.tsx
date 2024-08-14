@@ -127,4 +127,6 @@ export default async function Component({ userID }) {
   return user
 }
 // Revalidating data --
-to recath data in fetch request 
+to recath data in fetch request--
+// code--
+fetch('https://...', { next: { revalidate: 3600 } }) // revalidate at most every hour
