@@ -22,3 +22,24 @@ app.post("/signin",(req, res)=>{
     res.cookie("token",token);
     res.send("logged in!")
 })
+
+app.get("/user",(req,res)=>{
+    const token = req.cookies.token
+    
+    if(token){
+        const decoded = jwt.verify(token,JWT_SECRET) as JwtPayload
+    res.send({
+        userId:decoded.id
+    })}
+    res.send("unauthorized access")
+})
+
+app.listen(5173,()=>{
+    console.log("listening to the port 5173")
+})
+app.post("/logout",(req,res)=>{
+    res.clearCookie("token")
+    res.json({
+        message:"logged out!"
+    })
+})
