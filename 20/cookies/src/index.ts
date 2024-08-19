@@ -3,6 +3,7 @@ import cookieParser from "cookie-parser";
 import cors from "cors";
 import jwt, { JwtPayload } from "jsonwebtoken";
 import path from "path";
+
 const JWT_SECRET ="secret"
 const app = express();
 app.use(cookieParser())
