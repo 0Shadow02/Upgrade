@@ -11,7 +11,7 @@ export const authoptions={
                 const email =await credentails.username
                 const password =await credentails.password
                 return {
-                    id:"userid",
+                    id:"1",
                     email,
                     password
                 }
@@ -22,14 +22,17 @@ export const authoptions={
     secret:process.env.NEXTAUTH_SECRET,
     callbacks: {
         jwt: async ({ user, token }: any) => {
+            console.log(token)
             if (user) {
-                token.uid = user.id;
+                token.userid = user.id
+                token.password="fdasfsd"
             }
             return token;
         },
       session: ({ session, token, user }: any) => {
           if (session.user) {
-              session.user.id = token.uid
+              session.user.id = token.sub
+              session
           }
           return session
       }
