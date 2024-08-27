@@ -18,10 +18,10 @@
 // });
 // console.log(result);
 
-// interface User {
-//     id: string;
-//     name: string;
-//   }
+interface User {
+    id: string;
+    name: string;
+  }
 
   type Users = { [key:string] :User }
   const users: Users = {
