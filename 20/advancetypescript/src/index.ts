@@ -1,3 +1,9 @@
+import zod from "zod"
+const myschema = zod.object({
+  name: zod.string(),
+  email:zod.string().email(),
+  rollno:zod.number()
+})
 interface User {
 	name: string;
 	age: number;
