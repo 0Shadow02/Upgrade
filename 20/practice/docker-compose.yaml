@@ -1,0 +1,19 @@
+version: '1.0'
+services:
+  monogo:
+    image: monogo
+    container_name: mydb
+    ports:
+      -'27017:27017'
+    volumes:
+      -myvol:/db/data
+      -.:/app
+  
+  backendcontainer:
+    build: .
+    container_name: backend1
+    ports:
+      -'3000:3000'
+    
+volumes:
+  myvol:
