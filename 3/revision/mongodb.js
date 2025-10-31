@@ -1,10 +1,13 @@
 const express = require("express");
 const app = express();
+const path = require("path");
+require("dotenv").config({ path: path.join(__dirname, "../.env") });
+
 const mongoose = require("mongoose");
 const { string } = require("zod");
-mongoose.connect(
-  "mongodb+srv://0amatsu0:TXTwmq7DvDnfPnIR@cluster0.dtsvekg.mongodb.net/n"
-);
+
+const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost:27017/n";
+mongoose.connect(MONGODB_URI);
 const user = mongoose.model("username", { username: String, password: String });
 app.use(express.json());
 app.post("/", function (req, res) {

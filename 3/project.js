@@ -1,13 +1,15 @@
 const express = require("express");
 const app = express();
+require("dotenv").config();
+
 const jwt = require("jsonwebtoken");
-const jwtPassword = "123";
+const jwtPassword = process.env.JWT_SECRET || "123";
 const mongoose = require("mongoose");
 const User = mongoose.model("users", { username: String, password: String });
 const { number } = require("zod");
-mongoose.connect(
-  "mongodb+srv://0amatsu0:TXTwmq7DvDnfPnIR@cluster0.dtsvekg.mongodb.net/project"
-);
+
+const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost:27017/project";
+mongoose.connect(MONGODB_URI);
 // function checknewuser() {
 //   const username = req.body.username;
 //   const password = req.body.password;

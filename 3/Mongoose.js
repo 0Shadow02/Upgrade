@@ -1,11 +1,12 @@
 const express = require("express");
 const app = express();
+require("dotenv").config();
 
 const mongoose = require("mongoose");
 const { string } = require("zod");
-mongoose.connect(
-  "mongodb+srv://0amatsu0:TXTwmq7DvDnfPnIR@cluster0.dtsvekg.mongodb.net/User_APP"
-);
+
+const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost:27017/User_APP";
+mongoose.connect(MONGODB_URI);
 const User = mongoose.model("Users", {
   name: String,
   email: String,

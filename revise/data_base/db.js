@@ -1,7 +1,8 @@
 const mongoose = require("mongoose");
-mongoose.connect(
-  "mongodb+srv://0amatsu0:TXTwmq7DvDnfPnIR@cluster0.dtsvekg.mongodb.net/Todo_app"
-);
+require("dotenv").config();
+
+const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost:27017/Todo_app";
+mongoose.connect(MONGODB_URI);
 const UserSchema = mongoose.Schema({
   username: String,
   password: String,
