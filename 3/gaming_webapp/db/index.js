@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
 const { string } = require("zod");
-require("dotenv").config({ path: "../.env" });
+const path = require("path");
+require("dotenv").config({ path: path.join(__dirname, "../.env") });
 
 const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost:27017/gaming_webapp";
 mongoose.connect(MONGODB_URI);

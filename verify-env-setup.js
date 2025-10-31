@@ -46,7 +46,7 @@ directories.forEach(({ dir, envPath }) => {
       if (envContent.includes('username:password@cluster')) {
         console.log(`  ⚠️  ${envPath} still contains example values - update with real credentials`);
         allGood = false;
-      } else if (envContent.includes('0amatsu0:TXTwmq7DvDnfPnIR')) {
+      } else if (envContent.includes('TXTwmq7DvDnfPnIR')) {
         console.log(`  ❌ ${envPath} contains EXPOSED credentials - replace immediately!`);
         allGood = false;
       } else {
