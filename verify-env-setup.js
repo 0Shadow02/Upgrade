@@ -42,8 +42,9 @@ directories.forEach(({ dir, envPath }) => {
     // Check if .env has MONGODB_URI
     const envContent = fs.readFileSync(fullPath, 'utf8');
     if (envContent.includes('MONGODB_URI=')) {
-      // Check if it's not still the example value
-      if (envContent.includes('username:password@cluster')) {
+      // Check if it's not still the example value using regex
+      const placeholderPattern = /username.*password.*@.*cluster/i;
+      if (placeholderPattern.test(envContent)) {
         console.log(`  ⚠️  ${envPath} still contains example values - update with real credentials`);
         allGood = false;
       } else if (envContent.includes('TXTwmq7DvDnfPnIR')) {
