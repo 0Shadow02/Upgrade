@@ -1,8 +1,9 @@
 const mongoose = require("mongoose");
 const { string } = require("zod");
-mongoose.connect(
-  "mongodb+srv://0amatsu0:TXTwmq7DvDnfPnIR@cluster0.dtsvekg.mongodb.net/gaming_webapp"
-);
+require("dotenv").config({ path: "../.env" });
+
+const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost:27017/gaming_webapp";
+mongoose.connect(MONGODB_URI);
 const AdminSchema = new mongoose.Schema({
   username: String,
   password: String,

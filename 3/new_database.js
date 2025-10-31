@@ -2,8 +2,10 @@ const express = require('express')
 const mongoose = require('mongoose')
 const { string } = require('zod')
 const app = express()
+require("dotenv").config();
 
-mongoose.connect("mongodb+srv://0amatsu0:TXTwmq7DvDnfPnIR@cluster0.dtsvekg.mongodb.net/New_user")
+const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost:27017/New_user";
+mongoose.connect(MONGODB_URI)
 // mongoose.create('Users',{ usename: string , password: string})
 const User = mongoose.model('Users', { username: String, password: String, name: String })
 app.use(express.json())
